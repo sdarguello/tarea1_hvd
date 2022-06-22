@@ -73,6 +73,18 @@ const load = async (variable = "casos_totales") => {
         return "red";
       }
     })
+  .on('mouseover', function (d, i) {
+          d3.select(this).transition()
+               .duration('50')
+               .attr('opacity', '.200')
+                //pruebas de mostrar texto
+               .select('#id').text(d.id)
+               .graf.html('prueba')
+                         })
+    .on('mouseout', function (d, i) {
+          d3.select(this).transition()
+               .duration('50')
+               .attr('opacity', '1')})
     .style("stroke", (d) => d3.rgb(newFeatureColor(d3.geoArea(d))).darker());
 };
 
